@@ -26,7 +26,7 @@ Open the starter project in Android Studio
 
 5. Create a new Login destination.
 
-   * Include email and password labels 
+   * Include email and password label  
 
    - Include email and password fields
    - Create buttons for creating a new login and logging in with an existing account
