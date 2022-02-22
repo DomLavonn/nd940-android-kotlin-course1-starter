@@ -14,22 +14,13 @@
         android:text="@string/login_title"
         style="@style/title_text" />
 
-
-    <!-- TODO: Update blank fragment layout -->
-
    <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="match_parent"
        android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:paddingBottom="60dp"
+       android:gravity="center_vertical"
+       android:paddingBottom="60dp"
        >
-
-
-
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Email:"
+            android:text="@string/label_email"
             android:textStyle="bold"
             android:textSize="24sp"
             android:layout_margin="3dp"
@@ -52,9 +43,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:inputType="text"
-            android:hint="Enter Email"
-            />
+            android:autofillHints="emailAddress"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Password:"
+            android:text="@string/label_password"
             android:textStyle="bold"
             android:textSize="24sp"
             android:layout_margin="3dp"
@@ -79,9 +72,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:inputType="text"
-            android:hint="Enter Password"
-            />
+            android:autofillHints="password"
+            android:hint="@string/button_passworrd"
+            android:inputType="textPassword"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
     </LinearLayout>
 
     <RelativeLayout
@@ -91,22 +85,21 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         >
+
         <Button
             android:id="@+id/button_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            />
+            android:text="@string/button_login"
+            tools:ignore="DuplicateSpeakableTextCheck" />
         <Button
             android:id="@+id/button_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
+            android:text="@string/button_signup"
             android:layout_below="@id/button_login"
 
             />
-
-
     </RelativeLayout>
    </LinearLayout>
 

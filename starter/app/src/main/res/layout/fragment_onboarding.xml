@@ -6,13 +6,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".OnboardingFragment">
-
-        <!-- TODO: Update blank fragment layout -->
+        tools:context=".OnboardingFragment"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="0dp"
+            android:text="Instructions!"
+            style="@style/title_text"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_weight="9"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Click next to see list of shoes"
+                android:textSize="28sp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                />
+
+            <Button
+                android:id="@+id/button_shoelist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 
