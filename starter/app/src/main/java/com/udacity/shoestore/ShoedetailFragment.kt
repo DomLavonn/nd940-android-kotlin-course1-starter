@@ -41,6 +41,10 @@ class ShoedetailFragment : Fragment() {
             shoe?.company = input_company.text.toString()
             shoe?.description = input_desc.text.toString()
             shoe?.size = input_size.text.toString().toDouble()
+
+            // Nav with safe args
+            // Passing paramaters in nav direction
+            findNavController().navigate(ShoedetailFragmentDirections.actionShoedetailFragmentToShoelistingFragment(shoe?.name, shoe?.company, shoe?.description, shoe?.size.toFloat()))
         }
 
         return binding.root

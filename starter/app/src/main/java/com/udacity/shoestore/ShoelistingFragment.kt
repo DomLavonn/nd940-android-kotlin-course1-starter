@@ -58,6 +58,23 @@ class ShoelistingFragment : Fragment() {
 
         // menu
         setHasOptionsMenu(true)
+
+
+        var args = ShoelistingFragmentArgs.fromBundle(requireArguments())
+
+
+        ShoelistingFragmentArgs.fromBundle(requireArguments())
+
+        // grabbing args from bundle
+        if ( args == null) {
+          Toast.makeText(requireContext(), "null", Toast.LENGTH_LONG).show()
+
+      }else{
+
+      }
+
+     //  Toast.makeText(requireContext(), args.name, Toast.LENGTH_LONG).show()
+
         return binding.root
     }
 

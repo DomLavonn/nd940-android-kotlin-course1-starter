@@ -35,6 +35,17 @@
         <action
             android:id="@+id/action_shoelistingFragment_to_shoedetailFragment"
             app:destination="@id/shoedetailFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument android:name="company"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="size"
+            app:argType="float" />
     </fragment>
     <fragment
         android:id="@+id/shoedetailFragment"
