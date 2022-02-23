@@ -15,8 +15,6 @@ class WelcomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,9 +27,6 @@ class WelcomeFragment : Fragment() {
             // Navigation to onboarding fragment
             findNavController().navigate(R.id.action_welcomeFragment_to_onboardingFragment)
         }
-
         return binding.root
     }
-
-
 }

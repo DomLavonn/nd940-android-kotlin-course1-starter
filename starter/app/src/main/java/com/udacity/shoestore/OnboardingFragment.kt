@@ -24,9 +24,6 @@ class OnboardingFragment : Fragment() {
         binding.buttonShoelist.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_shoelistingFragment)
         }
-
         return binding.root
     }
-
-
 }

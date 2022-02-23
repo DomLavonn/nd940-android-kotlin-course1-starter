@@ -1,17 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="Shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ShoedetailFragment">
+        tools:context=".ShoedetailFragment"
+        android:orientation="vertical"
+        >
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:layout_width="match_parent"
+            android:text="@string/shoe_detail"
+            style="@style/title_text" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingBottom="60dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Name"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_margin="3dp"
+                    />
+
+                <EditText
+                    android:id="@+id/input_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:autofillHints="text"
+                    android:hint="Enter Name"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Company"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_margin="3dp"
+                    />
+
+                <EditText
+                    android:id="@+id/input_company"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:autofillHints="Enter Company"
+                    android:hint="Enter Company"
+                    android:inputType="text"
+                    tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Shoe Size"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_margin="3dp"
+                    />
+
+                <EditText
+                    android:id="@+id/input_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:autofillHints="Enter Size"
+                    android:hint="Enter Size"
+                    android:inputType="text"
+                    tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Desc"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_margin="3dp"
+                    />
+
+                <EditText
+                    android:id="@+id/input_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:autofillHints="Enter Description"
+                    android:hint="Enter Description"
+                    android:inputType="text"
+                    tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                >
+
+                <Button
+                    android:id="@+id/button_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cancel"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+                <Button
+                    android:id="@+id/button_save"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:layout_below="@id/button_cancel"
+
+                    />
+            </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
-</layout>
 
+
+</layout>
