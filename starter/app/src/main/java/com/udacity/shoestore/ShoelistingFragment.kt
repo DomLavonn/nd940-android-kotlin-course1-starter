@@ -1,12 +1,10 @@
 package com.udacity.shoestore
 
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.widget.*
 import androidx.fragment.app.Fragment
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +15,6 @@ import com.udacity.shoestore.adapters.MyAdapter
 import com.udacity.shoestore.databinding.FragmentShoelistingBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoesViewModel
-import java.io.PrintStream
 
 
 class ShoelistingFragment : Fragment() {
@@ -25,10 +22,7 @@ class ShoelistingFragment : Fragment() {
     // Our view model
     private lateinit var viewModel: ShoesViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-
-        super.onCreate(savedInstanceState)
-    }
+    var testArr: ArrayList<Shoe>? = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,14 +36,55 @@ class ShoelistingFragment : Fragment() {
         // Creates new instance of shoeviewmodel for me
         viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
 
-        //Observer
-        viewModel.shoeList.observe(viewLifecycleOwner, Observer { newItem ->
+      //  var testArr: ArrayList<Shoe>? = arrayListOf()
 
-        print("sfdsaadsfsadfdsafasdfdsafsdafsdfsdafdasfjklsdalfkasdkfsdalfksdafjsdafsdajffjlkasd")
-        } )
+
 
         // Setting adapter
-        binding.shoeList.adapter = MyAdapter(getContext() as Activity, viewModel.shoeList.value, inflater )
+        binding.shoeList.adapter = MyAdapter(getContext() as Activity, testArr, inflater )
+
+        // Getting passed args
+        var args = ShoelistingFragmentArgs.fromBundle(requireArguments())
+
+        // grabbing args from bundle
+        if ( args.company == null || args.name == null || args.description == null || args.size == null) {
+            Toast.makeText(requireContext(), args.name, Toast.LENGTH_LONG).show()
+
+        }else{
+            if(args.name != "" && args.company != "" && args.size != 0.0.toFloat() &&  args.description != ""  ) {
+                testArr =   viewModel.shoeList.value
+
+
+                //  Toast.makeText(requireContext(), "Data changes", Toast.LENGTH_LONG).show()
+                viewModel.shoeList.value?.add(Shoe(args.name, args.size.toDouble(), args.company, args.description))
+
+                //Observer
+                viewModel.shoeList.observe(viewLifecycleOwner, Observer { newItem ->
+                   // binding.addme.addView(newItem[newItem.size-1])
+                    binding.shoeList.deferNotifyDataSetChanged()
+
+
+
+
+                  //  addToList(inflater, args.name, args.size.toDouble(), args.company, args.description)
+                    // LinearLayout =
+
+                    // testArr?.add(newItem[newItem.size - 1])
+                    //   MyAdapter(getContext() as Activity, testArr, inflater ).notifyDataSetChanged()
+
+
+                    Toast.makeText(requireContext(), newItem.toString(), Toast.LENGTH_LONG).show()
+                    //viewModel.shoeList.value.size
+                } )
+                // Setting adapter
+
+
+            }
+
+        }
+
+
+
 
         // Floating button onclick
         binding.floatingAction.setOnClickListener{
@@ -60,22 +95,20 @@ class ShoelistingFragment : Fragment() {
         setHasOptionsMenu(true)
 
 
-        var args = ShoelistingFragmentArgs.fromBundle(requireArguments())
-
-
-        ShoelistingFragmentArgs.fromBundle(requireArguments())
-
-        // grabbing args from bundle
-        if ( args == null) {
-          Toast.makeText(requireContext(), "null", Toast.LENGTH_LONG).show()
-
-      }else{
-
-      }
-
      //  Toast.makeText(requireContext(), args.name, Toast.LENGTH_LONG).show()
 
         return binding.root
+    }
+
+    fun addToList(inflater: LayoutInflater, name: String, size: Double, company:String, description:String)
+    {
+
+        viewModel.shoeList.value?.add(Shoe(name, size, company, description))
+      //  viewModel.shoeList.value = testArr
+        //ad.notifyDataSetChanged()
+        //Toast.makeText(requireContext(), viewModel.shoeList.value?.size, Toast.LENGTH_LONG).show()
+
+        //adapter.adapter.notifyDataSetChanged()
     }
 
     // Inflating my menu

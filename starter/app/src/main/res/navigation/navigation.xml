@@ -37,15 +37,23 @@
             app:destination="@id/shoedetailFragment" />
         <argument
             android:name="name"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue='""' />
         <argument android:name="company"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue='""' />
         <argument
             android:name="description"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue='""' />
         <argument
             android:name="size"
-            app:argType="float" />
+            app:argType="float"
+            android:defaultValue="0.0" />
+        <argument
+            android:name="saved"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
     <fragment
         android:id="@+id/shoedetailFragment"

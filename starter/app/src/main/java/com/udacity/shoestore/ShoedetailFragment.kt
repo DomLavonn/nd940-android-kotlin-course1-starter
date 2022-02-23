@@ -20,14 +20,12 @@ class ShoedetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         val binding: FragmentShoedetailBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoedetail, container, false)
 
-
         // Set value from layout file
         binding.shoe = shoe
-
-
 
         // Navigate back to listing
         binding.buttonCancel.setOnClickListener{
@@ -37,14 +35,14 @@ class ShoedetailFragment : Fragment() {
         binding.buttonSave.setOnClickListener {
 
             // Setting with data
-            shoe?.name = input_name.text.toString()
-            shoe?.company = input_company.text.toString()
-            shoe?.description = input_desc.text.toString()
+            shoe?.name = input_name.text.toString() ?: "no name"
+            shoe?.company = input_company.text.toString() ?: "no company"
+            shoe?.description = input_desc.text.toString() ?: "no description"
             shoe?.size = input_size.text.toString().toDouble()
 
             // Nav with safe args
             // Passing paramaters in nav direction
-            findNavController().navigate(ShoedetailFragmentDirections.actionShoedetailFragmentToShoelistingFragment(shoe?.name, shoe?.company, shoe?.description, shoe?.size.toFloat()))
+            findNavController().navigate(ShoedetailFragmentDirections.actionShoedetailFragmentToShoelistingFragment(shoe?.name, shoe?.company, shoe?.description, shoe?.size.toFloat(), true))
         }
 
         return binding.root

@@ -18,13 +18,8 @@ class ShoesViewModel: ViewModel() {
         shoeList.value = shoes
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        Log.i("ShoeViewModelClear", "removed")
-    }
-
     fun addShoes() {
         shoes.add(Shoe("Retro 11s", 12.0, "Jordan", "Jordans iconic sneaker", mutableListOf("@drawable/nike")))
-        shoes.add(Shoe("Retro 11s", 12.0, "Jordan", "Jordans iconic sneaker", mutableListOf("@drawable/nike")))
+        shoes.add(Shoe("Retro 11s", 12.0, "Jordan", "Jordans BLUE sneaker", mutableListOf("@drawable/nike")))
     }
 }
